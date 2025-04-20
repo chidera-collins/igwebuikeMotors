@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+
+@theme{
+  --color-text:#FF6500;
+  --color-mybg:#000000;
+}
+
+
+.landingp{
+  background-image: url(/src/UI/HomeFolder/HomePictures/background.webp);
+  background-size: cover;
+  background-position: fixed;
+}
+
+.pages:hover+ .subnav{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+.subnav:hover{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+.subnav{
+  top: 90px;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out;
+}

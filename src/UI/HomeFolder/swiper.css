@@ -1,0 +1,18 @@
+/* Default pagination bullet */
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Active pagination bullet (Orange Color) */
+  .swiper-pagination-bullet-active {
+    width: 30px; /* Increase width */
+    height: 10px;
+    background-color: #FF6500; /* Change to orange */
+    border-radius: 10px;
+    opacity: 1;
+  }
+  
