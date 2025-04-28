@@ -29,12 +29,16 @@ function ServiceComponent2() {
                     </p>
 
                     <div className='flex gap-2.5 items-center '>
-                    <div className="h-[40px] w-[110px] bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden">
-                                 <Button className="h-[23px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-1 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                                 <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                                        contact us
-                                 </h2>
-                                  <Button className="h-[24px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-5 gap-1 font-medium cursor-pointer flex items-center justify-center" />
+                    <div className="relative h-[40px] w-[110px] mt-4 overflow-hidden bg-text rounded group cursor-pointer">
+                        <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                            <span className="text-white font-semibold text-[1rem]"> Contact us</span>
+                        </div>
+                        <Button
+                        className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                        />
+                        <Button
+                        className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                        />
                     </div>
                     <div className='h-[40px] w-[40px] bg-[grey] flex items-center justify-center mt-4'>
                         <FaPhone/>

@@ -40,13 +40,18 @@ function ContactComponent2() {
                     <CustomInput Icon={FiPhoneCall} type="text" className='w-full' placeholder="Phone Number" />    
                     <CustomInput Icon={IoCarSportSharp} type="text" className='w-full' placeholder="Car Type" />    
                     <CustomInput Icon={MdOutlineMessage} type="text" placeholder="Message" textarea={true}/>  
-                    <div className="h-[40px] w-full bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden">
-                        <Button className="h-[20px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                        <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                           
-                            Submit Now
-                        </h2>
-                        <Button className="h-[20px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
+                    <div className="relative h-[40px] w-[190px] mt-4 overflow-hidden bg-text rounded group cursor-pointer">
+                        <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                            <span className="text-white font-semibold text-[1rem]"> Submit Now</span>
+                        </div>
+                        <Button
+                        className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                        type='submit'
+                        />
+                        <Button
+                        className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                        type='submit'
+                        />
                     </div>
                 </form>
             </div>

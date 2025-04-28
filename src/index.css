@@ -13,18 +13,3 @@
   background-position: fixed;
 }
 
-.pages:hover+ .subnav{
-  top: 70px;
-  opacity: 1;
-  visibility: visible;
-}
-.subnav:hover{
-  top: 70px;
-  opacity: 1;
-  visibility: visible;
-}
-.subnav{
-  top: 90px;
-  visibility: hidden;
-  transition: opacity 1s ease-in-out;
-}

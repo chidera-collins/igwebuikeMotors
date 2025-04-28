@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import logo from './logo/logo.svg'
 import { Link } from 'react-router-dom'
 import Button from '../../Reusuable Folder/Button'
+import { FaBasketShopping } from 'react-icons/fa6';
+import { CartContext } from '../../Reusuable Folder/CartContext';
 
 function HeaderComponent() {
     const [subnav, setSubnav] = useState(100); //translating the subnav
@@ -27,8 +29,10 @@ function HeaderComponent() {
         return ()=>{
             document.body.style.overflow ='auto'
             window.removeEventListener('keydown',handleKeyPress)
-        }
+        } 
     },[subnav]);
+
+ 
 
     useEffect(()=>{
         const handleStickyHeader=()=>{
@@ -46,6 +50,11 @@ function HeaderComponent() {
             window.removeEventListener('scroll',handleStickyHeader)
         }
     });
+
+    const {cart} = useContext(CartContext);
+    console.log(cart);
+    const totalItems = cart.reduce((sum , item)=> sum + item.quantity ,0);
+    console.log(totalItems);
     
   
   return (
@@ -62,36 +71,47 @@ function HeaderComponent() {
                     <li className='hover:text-text'><Link to={'/'}>Home</Link></li>
                     <li className='hover:text-text'><Link to={'/about'}>About</Link></li>
                     <li className='hover:text-text'><Link to={'/shop'}>Shop</Link></li>
-                    <li className='pages cursor-pointer'>Pages  </li>
-                    <div className='absolute subnav bg-[#808080a3] w-[150px] opacity-0 right-[40%] h-[140px]'style={{transition:'1s'}}>
-                        <ul className='grid grid-cols-1 h-[inherit]'>
-                            <li className='border-b-2 border-b-mybg w-full text-center hover:text-text'><Link to={'/cart'}>Cart</Link></li>
-                            <li className='border-b-2 border-b-mybg w-full text-center hover:text-text'><Link to={'/checkout'}>Checkout</Link></li>
-                            <li className='border-b-2 border-b-mybg w-full text-center hover:text-text'><Link to={'/services'}>Services</Link></li>
-                            <li className=' w-full text-center hover:text-text'><Link to={'/faq'}>Faq</Link></li>
-                        </ul>
-
-                    </div>
+                    <li className='hover:text-text'><Link to={'/cart'}>Cart</Link>  </li>
                     <li className='hover:text-text'><Link to={'/contact'}>Contact</Link></li>
                 </ul>
 
             </div>
             <div className='h-[inherit] bg-[] w-[30%] flex items-center justify-evenly'>
-                 <div className="h-[30px] w-[110px] bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden">
-                    <Button className="h-[23px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                        <h2 className="text-[white] z-40 hover:z-40 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                            Sign in
-                        </h2>
-                    <Button className="h-[21px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
+                <div>
+                    <Link to='/cart'>
+                        <FaBasketShopping className='text-text'/>
+                        {totalItems > 0 &&
+                            <span className='absolute top-3 text-white'>{totalItems}</span>
+                        }
+                    </Link>
                 </div>
+                <Link to='/login'>
+                <div className="relative h-[30px] w-[110px] overflow-hidden bg-text rounded group cursor-pointer">
+                    <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                        <span className="text-white font-semibold text-[1rem]"> Sign In</span>
+                    </div>
+                    <Button
+                    className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                    <Button
+                    className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                </div>
+                </Link>
 
-                <div className="h-[30px] w-[110px] bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden">
-                    <Button className="h-[23px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                        <h2 className="text-[white] z-40 hover:z-40 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                            Sign up
-                        </h2>
-                    <Button className="h-[21px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
+                <Link to='/login'>
+                <div className="relative h-[30px] w-[110px] overflow-hidden bg-text rounded group cursor-pointer">
+                    <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                        <span className="text-white font-semibold text-[1rem]"> Sign Up</span>
+                    </div>
+                    <Button
+                    className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                    <Button
+                    className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
                 </div>
+                </Link>
                 
 
             </div>
@@ -105,7 +125,14 @@ function HeaderComponent() {
                 <img src={logo} alt="" className='h-10 w-20' />
                 <h2 className='font-semibold text-text'>IGB Motors</h2>         
             </div>
-            <div className='h-[inherit] w-[20%]  flex justify-center items-center text-[1.3rem]'>
+            <div className='h-[inherit] w-[25%]  flex justify-around items-center text-[1.3rem]'>
+
+                    <Link to='/cart'>
+                        <FaBasketShopping className='text-text'/>
+                        {totalItems > 0 &&
+                            <span className='absolute top-3 text-white'>{totalItems}</span>
+                        }
+                    </Link>
                 <Button
                     label='Ξ'
                     className='bg-text text-mybg font-medium p-3'

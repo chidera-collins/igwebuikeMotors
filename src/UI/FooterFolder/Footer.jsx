@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../HeaderComponent/logo/logo.svg'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -26,11 +27,12 @@ function Footer() {
                         <div className='h-20 flex  items-center'>
                             <h1 className='font-medium text-text lg:text-[1.4rem]'>Quick Links</h1>
                         </div>
-                        <a href="#">Get In Touch</a>
-                        <a href="#">Get In Touch</a>
-                        <a href="#">Car Reviews</a>
-                        <a href="#">Miantainance Tips</a>
-                        <a href="#">Contact Us</a>
+                        <Link to='/checkout' className='hover:text-text'>Checkout</Link>
+                        <Link to='/faq' className='hover:text-text'>FAQ</Link>
+                        <Link to='/services' className='hover:text-text'>Services</Link>
+                        <Link to='/contact' className='hover:text-text'>Contact Us</Link>
+                        <a href="#" className='hover:text-text'>Car Reviews</a>
+                        <a href="#" className='hover:text-text'>Miantainance Tips</a>
                     </div>
                     <div className=' w-full flex flex-col text-white'>
                         <div className='h-20 flex items-center'>

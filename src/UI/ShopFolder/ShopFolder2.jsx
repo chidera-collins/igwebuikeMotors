@@ -6,14 +6,14 @@ import { db } from '../../config/firebase';
 import { CiHeart } from 'react-icons/ci';
 import { CartContext } from '../../Reusuable Folder/CartContext';
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-hot-toast'
+import CustomInput from '../../Reusuable Folder/CustomInput';
 
 
 function ShopFolder2() {
     const carsCollectionRef = collection(db,'cars');
     const [carList, setCarList] = useState([]);
     const [selectedName , setSelectedName]= useState('');
-    const [selectedModel , setSelectedModel]= useState('');
-    const [selectedPrice , setSelectedPrice]= useState('');
     const [currentPage, setCurrentPage] =useState(1)
     const [filteredCars , setFilteredCars] = useState([])
     const [searching, setSearching] = useState(false)
@@ -41,22 +41,11 @@ function ShopFolder2() {
 
       //handling the search button
     const searchCars =()=>{
+        const searchCar = selectedName.toLocaleLowerCase()
         const result = carList.filter((car)=>{
-            let carName = true;
-            let carModel = true;
-            let carPrice = true;
-            if (selectedName) {
-                carName =car.name === selectedName  
-            }
-            if (selectedModel) {
-                carModel = car.model === selectedModel
-                
-            }
-            if (selectedPrice) {
-                carPrice = car.price === selectedPrice     
-            }
-
-            return carName && carModel && carPrice;
+            const carName = car.name.toLowerCase();
+            const carModel = car.model.toLowerCase();
+            return carName.includes(searchCar) || carModel.includes(searchCar);
         })
 
         setFilteredCars(result);
@@ -93,9 +82,12 @@ function ShopFolder2() {
     const {addToCart} = useContext(CartContext)
     const handleAddToCart=(item)=>{
         console.log(item, 'added')
-        // alert('added')
         addToCart(item)
-        // console.log(item)
+        toast.success('added to cart',{
+            style:{
+                width:'100%'
+            }
+        })
     }
 
     //details functionality
@@ -108,51 +100,20 @@ function ShopFolder2() {
     <div>
         <div className='min-h-[100px] w-full bg-[grey] flex flex-col items-center'>
             <form action="" className='w-[90%] min-h-[60px] bg-[white]  mb-2.5 flex flex-col lg:flex-row lg:justify-around lg:px-4 items-center gap-5 mt-5'onSubmit={(e)=>e.preventDefault()} >
-                 <select className="w-full  bg-[#E2DFD0] h-[30px]  overflow-y-auto " 
-                 size={1}
-                 value={selectedName}
-                 onChange={(e)=>setSelectedName(e.target.value)}
-                 >
-                    <option value='' disabled>
-                        Car Make
-                    </option>
-                    {uniqueName.map((name ,id)=>(
-                        <option key={id} value={name} >{name}</option>
-
-                    ))}
-                  </select>
-                <select className="w-full  bg-[#E2DFD0] h-[30px] " value={selectedModel} onChange={(e)=>setSelectedModel(e.target.value)}>
-                    <option value="" disabled>Car Model</option>
-                   {carList.map((car,id)=>(
-                    <option key={id} value={car.model}>
-                        {car.model}
-                    </option>
-                   ))}
-                </select>
-
-                <select className="w-full  bg-[#E2DFD0] h-[30px]" 
-                value={selectedPrice}
-                onChange={(e)=>setSelectedPrice(Number(e.target.value))}
-                >
-                    <option value='' disabled>Price</option>
-                    {carList.map((car,id)=>(
-                        <option key={id} value={car.price}>
-                            {car.price}
-                        </option>
-                    ))}
-                  
-                 </select>
+                 <CustomInput className='w-full outline-text' placeholder='Search car by make or model' value={selectedName}  onChange={(e)=>setSelectedName(e.target.value)}/>
 
 
-                <div className="h-[40px] w-[100%] lg:w-[40%] bg-text  relative cursor-pointer justify-center flex group text-center rounded-md flex-col overflow-hidden" onClick={searchCars}>
-                    <Button className="h-[20px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                        <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                            <span>
-                                <CiSearch />
-                            </span>
-                                Search
-                        </h2>
-                    <Button className="h-[20px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
+                <div className="relative h-[40px] w-[100%]  lg:w-[20%] overflow-hidden bg-text rounded group  cursor-pointer"  onClick={searchCars}>
+                    <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                        <span className="text-white font-semibold text-[1rem]"><CiSearch/></span>
+                        <span className="text-white font-semibold text-[1rem]">Search</span>
+                    </div>
+                    <Button
+                     className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                    <Button
+                    className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
                 </div>
 
 
@@ -165,8 +126,8 @@ function ShopFolder2() {
                     currentCars.length>0 ?
                     (currentCars.map((cars,id)=>(
                         <div key={id} 
-                            className='min-h-[200px] bg-[#808080a3] grid grid-cols-1 rounded-[4%] p-6'>
-                                <div className=' w-full bg-  relative'>
+                            className='min-h-[200px] bg-[#808080a3] grid grid-cols-1 rounded-[4%] p-6 group'>
+                                <div className=' w-full bg-  relative group-hover:scale-105 duration-200 transition-all  cursor-pointer' onClick={()=>handleViewDetails(cars)}>
                                     <img src={cars.photo} alt={cars.name} height='100%' width='100%' />
                                         {/* for pics  */}
                                      <div className='bg-text h-[30px] w-fit text-center flex justify-center items-center left-3 top-2 rounded-3xl p-4 absolute'><h3>{cars.condition}</h3></div>
@@ -189,27 +150,23 @@ function ShopFolder2() {
                                    </div>
                                    <div className='flex justify-between items-center px-3 border-b-2 border-[grey] '>
                                         <div className='h-[30px]'>
-                                         <h1 className='lg:text-[1.7rem] font-semibold'>${cars.price.toFixed(2)}</h1>
+                                         <h1 className='lg:text-[1.7rem] text-white font-semibold'>${cars.price.toFixed(2)}</h1>
                                         </div>
-                                        <div className="h-[30px] w-[110px] bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden" onClick={()=>handleViewDetails(cars)}>
-                                           <Button className="h-[23px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                                                <h2 className="text-[white] z-40 hover:z-40 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                                                    View Details
-                                                </h2>
-                                            <Button className="h-[21px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
-                                         </div>
-
-
+                                        <div className="relative h-[40px] w-[110px] mt-4 overflow-hidden bg-text rounded group cursor-pointer" onClick={()=>handleAddToCart(cars)}>
+                                            <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                                            <span className="text-white font-semibold text-[1rem]"> Add To Cart</span>
+                                            </div>
+                                            <Button
+                                            className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                                            />
+                                            <Button
+                                            className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                                            />
+                                        </div>
                                      
                                     </div>    
 
-                                    <div className="h-[30px] w-[110px] bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden " onClick={()=>handleAddToCart(cars)}>
-                                           <Button className="h-[23px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                                                <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                                                    ADD TO CART
-                                                </h2>
-                                            <Button className="h-[21px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
-                                    </div>             
+                         
                               </div>
                         </div>
                         
@@ -229,22 +186,30 @@ function ShopFolder2() {
 
             </div>
             <div className='min-h-[50px]  flex flex-wrap gap-2.5 w-[90%] items-center justify-center'>
-               <div className={`h-[30px] w-[110px] bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden ${IsPrevDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}  onClick={!IsPrevDisabled ? handlePrevPage : null}  >
-                 <Button className="h-[23px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center"   />
-                     <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1"   >
-                           Prev Page
-                     </h2>
-                <Button className="h-[21px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center"     />
-               </div>
+               <div className={`relative h-[40px] w-[110px] mt-4 overflow-hidden bg-text rounded group ${IsPrevDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} `} onClick={!IsPrevDisabled ? handlePrevPage :null}>
+                    <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                        <span className="text-white font-semibold text-[1rem]"> Prev Page</span>
+                    </div>
+                    <Button
+                    className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                    <Button
+                    className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                </div>
 
 
-               <div className={`h-[30px] w-[110px] bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden ${IsNextDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}  onClick={!IsNextDisabled ? handleNextPage : null}  >
-                 <Button className="h-[23px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center"   />
-                     <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1"   >
-                          Next Page
-                     </h2>
-                <Button className="h-[21px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center"     />
-               </div>
+                <div className={`relative h-[40px] w-[110px] mt-4 overflow-hidden bg-text rounded group ${IsNextDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} `} onClick={!IsNextDisabled ? handleNextPage :null}>
+                    <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                        <span className="text-white font-semibold text-[1rem]"> Next Page</span>
+                    </div>
+                    <Button
+                    className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                    <Button
+                    className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                </div>
 
 
                <div className='h-[30px]  mt-3 grid place-items-center'>

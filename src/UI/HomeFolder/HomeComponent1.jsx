@@ -12,7 +12,12 @@ function HomeComponent1() {
     <div className="min-h-[100vh] p-[20px] landingp">
         <div className="min-h-[inherit] flex flex-col lg:flex lg:flex-row items-center">
           {/* Left Side Text */}
-          <div className="h-[400px] mt-[30px] w-[100%] lg:w-[60%] capitalize flex flex-col leading-[40px] justify-center text-start items-center font-bold p-[20px]">
+          <motion.div 
+          initial={{ opacity: 0, x:-10 }}
+          whileInView={{ opacity: 1, x:0 }}
+        transition={{delay:1, duration:2}}
+        viewport={{ once: true }}
+          className="h-[400px] mt-[30px] w-[100%] lg:w-[60%] capitalize flex flex-col leading-[40px] justify-center text-start items-center font-bold p-[20px]">
             <h1 className="text-[1.6rem] lg:text-[2rem] text-[white]">
               Unleash the road: discover your perfect{" "}
               <span className="text-text underline">cars</span> ride today
@@ -20,23 +25,23 @@ function HomeComponent1() {
             <h2 className="lg:text-[2rem] text-start text-[white]">
               buy and <span className="text-text">drive</span>
             </h2>
-          </div>
+          </motion.div>
 
-          {/* Right Side Form */}
+          {/* Right Side Form */}          
           <div className="bg-[white] w-full lg:w-[30%] h-[340px] p-[20px] border-box">
             <div className="w-[100%] h-[280px] p-2">
               <form action="" onSubmit={(e) => e.preventDefault()}>
                 {/* Buttons to Select Car Type */}
                 <div className="flex justify-center gap-3">
                   <Button
-                    className={`h-[40px] w-[100px] rounded-sm text-white ${
+                    className={`h-[40px] w-[100px] rounded-sm text-white cursor-pointer ${
                       carType === "new" ? "bg-text": " bg-[#E2DFD0]"
                     }`}
                     label="New Car"
                     onClick={() => setCarType("new")}
                   />
                   <Button
-                    className={`h-[40px] w-[100px] rounded-sm text-white ${
+                    className={`h-[40px] w-[100px] rounded-sm text-white cursor-pointer ${
                       carType === "used" ? "bg-text":"bg-[#E2DFD0]" 
                     }`}
                     label="Used Car"
@@ -86,15 +91,23 @@ function HomeComponent1() {
                 </motion.div>
 
                 {/* Search Button */}
-                <div className="h-[40px] w-full bg-text mt-4 relative cursor-pointer justify-center flex group text-center flex-col overflow-hidden">
-                  <Button className="h-[20px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                  <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                    <span>
-                      <CiSearch />
-                    </span>
-                    Search
-                  </h2>
-                  <Button className="h-[20px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
+                <div className="relative h-[40px] w-full mt-4 overflow-hidden bg-text rounded group cursor-pointer">
+
+                    <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                        <span className="text-white font-semibold text-[1rem]"><CiSearch/></span>
+                        <span className="text-white font-semibold text-[1rem]">  Search</span>
+                    </div>
+
+                  
+                    <Button
+                        type="submit"
+                        className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+
+                    <Button
+                        type="submit"
+                        className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
                 </div>
               </form>
             </div>

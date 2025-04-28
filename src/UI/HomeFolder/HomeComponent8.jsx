@@ -1,5 +1,6 @@
 import React from 'react'
 import { GrStatusGood } from "react-icons/gr";
+import { motion } from 'framer-motion';
 
 function HomeComponent8() {
   return (
@@ -20,10 +21,20 @@ function HomeComponent8() {
                 </div>
             </div>
             <div className='bg lg:w-[50%] grid grid-cols-1 md:grid-cols-2 gap-3 min-h-[500px] lg:p-8  p-4 '>
-                <div className='bg-[url(/src/UI/HomeFolder/HomePictures/choose1.webp)] bg-no-repeat bg-center bg-cover'>
+                <motion.div 
+                 initial={{ opacity: 0, y:10,scale:1.2 }}
+                 whileInView={{ opacity: 1, y:0  ,scale:1}}
+                 transition={{delay:0.5, duration:2}}
+                 viewport={{ once: true }}
+                className='bg-[url(/src/UI/HomeFolder/HomePictures/choose1.webp)] bg-no-repeat bg-center bg-cover'>
                     
-                </div>
-                <div className='bg-[url(/src/UI/HomeFolder/HomePictures/choose2.webp)] bg-no-repeat bg-cover bg-center '>e</div>
+                </motion.div>
+                <motion.div
+                 initial={{ opacity: 0, x:10,scaleX:1.3 }}
+                 whileInView={{ opacity: 1, x:0  ,scaleX:1}}
+                 transition={{delay:0.5, duration:2}}
+                 viewport={{ once: true }} 
+                className='bg-[url(/src/UI/HomeFolder/HomePictures/choose2.webp)] bg-no-repeat bg-cover bg-center '>e</motion.div>
             </div>
 
         </section>

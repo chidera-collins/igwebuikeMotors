@@ -79,6 +79,11 @@ export function CartProvider({children}) {
     };
 
 
+    const addToFavourites=()=>{
+
+    };
+
+
 
     return(
     // cartContext.provider is providing any value you want to pass down 

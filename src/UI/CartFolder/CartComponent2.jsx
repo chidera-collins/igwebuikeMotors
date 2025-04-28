@@ -86,12 +86,16 @@ function CartComponent2() {
               <span>Total</span>
               <span>${total.toFixed(2)}</span>
             </div>
-            <div className="h-[40px] w-[100%] lg:w-[60%] bg-text  relative cursor-pointer justify-center flex group text-center rounded-md flex-col overflow-hidden" onClick={handleNavigateCheckout}>
-                    <Button className="h-[20px] w-[100%] cursor-pointer absolute transition delay-150 duration-300 ease-in-out -translate-y-6 group-hover:-translate-y-0 bg-mybg top-0 gap-1 flex items-center justify-center" />
-                        <h2 className="text-[white] z-20 hover:z-20 font-medium text-[1rem] text-center flex justify-center items-center gap-1">
-                                Proceed to checkout
-                        </h2>
-                    <Button className="h-[20px] w-[100%] absolute text-[white] bg-mybg z-10 transition delay-150 duration-300 ease-in translate-y-5 group-hover:-translate-y-3 gap-1 font-medium cursor-pointer flex items-center justify-center" />
+            <div className="relative h-[40px] w-[100%] lg:w-[60%] mt-4 overflow-hidden bg-text rounded group cursor-pointer"  onClick={handleNavigateCheckout}>
+                    <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
+                        <span className="text-white font-semibold text-[1rem]"> Proceed to checkout</span>
+                    </div>
+                    <Button
+                    className="absolute top-[-100%] w-full h-full bg-mybg z-20 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
+                    <Button
+                    className="absolute top-[100%] w-full h-full bg-mybg z-10 transition-all duration-1000 ease-in-out group-hover:top-0"
+                    />
             </div>
           </section>
         </div>

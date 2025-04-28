@@ -1,15 +1,12 @@
 import React from 'react'
 
-function Button(props) {
-    const btnStyle={
-        className:props.className,
-        label:props.label,
-    }
+const Button = ({ label, className, onClick }) => {
   return (
-    <div>
-        <button className={`${props.className}`} style={btnStyle} onClick={props.onClick}>{props.label}</button>
-    </div>
-  )
-}
+    <button className={` ${className}`} onClick={onClick}>
+      {label}
+    </button>
+  );
+};
+
 
 export default Button

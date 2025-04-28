@@ -51,7 +51,7 @@ function DetailsComponent2() {
 
                         <div className='flex justify-between text-white'>
                             <h1 className='flex items-center gap-2'><span className='text-text'><IoSpeedometer/></span>Mileage</h1>
-                            <h1>{carDetails?.mileage ? carDetails?.mileage : 'loading details...'}</h1>
+                            <h1>{carDetails?.about ? `${carDetails?.about} Miles` : 'loading details...'}</h1>
                         </div>
 
                         <div className='flex justify-between text-white'>
