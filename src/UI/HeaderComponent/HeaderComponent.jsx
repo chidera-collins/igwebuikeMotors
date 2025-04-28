@@ -155,10 +155,10 @@ function HeaderComponent() {
                         <li className='hover:text-text'><Link to={'/'} onClick={navWidth}>Home</Link></li>
                         <li className='hover:text-text'><Link to={'/about'} onClick={navWidth}>About</Link></li>
                         <li className='hover:text-text'><Link to={'/shop'} onClick={navWidth}>Shop</Link></li>
-                                    <li className=' w-full text-center hover:text-text' onClick={navWidth}><Link to={'/cart'}>Cart</Link></li>
-                                    <li className=' w-full text-center hover:text-text' onClick={navWidth}><Link to={'/checkout'}>Checkout</Link></li>
-                                    <li className=' w-full text-center hover:text-text' onClick={navWidth}><Link to={'/services'}>Services</Link></li>
-                                    <li className=' w-full text-center hover:text-text'onClick={navWidth}><Link to={'/faq'}>Faq</Link></li>
+                        <li className=' text-center hover:text-text' onClick={navWidth}><Link to={'/cart'}>Cart</Link></li>
+                        <li className=' text-center hover:text-text' onClick={navWidth}><Link to={'/checkout'}>Checkout</Link></li>
+                        <li className=' text-center hover:text-text' onClick={navWidth}><Link to={'/services'}>Services</Link></li>
+                        <li className=' text-center hover:text-text'onClick={navWidth}><Link to={'/faq'}>Faq</Link></li>
 
 
                         <li className='hover:text-text' onClick={navWidth}><Link to={'/contact'}>Contact</Link></li>
