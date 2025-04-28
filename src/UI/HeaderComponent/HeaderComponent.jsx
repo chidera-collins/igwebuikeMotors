@@ -156,11 +156,11 @@ function HeaderComponent() {
                         <li className='hover:text-text'><Link to={'/about'} onClick={navWidth}>About</Link></li>
                         <li className='hover:text-text'><Link to={'/shop'} onClick={navWidth}>Shop</Link></li>
                         <li className='group'>Pages
-                            <div className=' hidden group-hover:block bg-[#808080a3] w-[full] mt-5  h-[140px]'>
+                            <div className='  group-hover:block bg-[#808080a3] w-[full] mt-5  h-[140px]'>
                                 <ul className='grid grid-cols-1 h-[inherit]'>
-                                    <li className='border-b-2 border-b-mybg w-full text-center hover:text-text' onClick={navWidth}><Link to={'/cart'}>Cart</Link></li>
-                                    <li className='border-b-2 border-b-mybg w-full text-center hover:text-text' onClick={navWidth}><Link to={'/checkout'}>Checkout</Link></li>
-                                    <li className='border-b-2 border-b-mybg w-full text-center hover:text-text' onClick={navWidth}><Link to={'/services'}>Services</Link></li>
+                                    <li className=' w-full text-center hover:text-text' onClick={navWidth}><Link to={'/cart'}>Cart</Link></li>
+                                    <li className=' w-full text-center hover:text-text' onClick={navWidth}><Link to={'/checkout'}>Checkout</Link></li>
+                                    <li className=' w-full text-center hover:text-text' onClick={navWidth}><Link to={'/services'}>Services</Link></li>
                                     <li className=' w-full text-center hover:text-text'onClick={navWidth}><Link to={'/faq'}>Faq</Link></li>
                                 </ul>
 
