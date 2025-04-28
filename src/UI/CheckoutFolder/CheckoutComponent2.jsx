@@ -39,6 +39,7 @@ function CheckoutComponent2() {
                     </section>
                 </div> */}
                 <div className='grid grid-cols-1 lg:grid-cols-3 w-full bg lg:gap-1'>
+                    hekfk
                     <div className='bg-[#808080a3] col-span-2 flex flex-col'>
                         <h1 className='mt-6 text-white font-medium text-[1.2rem] lg:text-[1.4rem]'>Billing Details</h1>
                         <form action="billing details" onSubmit={(e)=>e.preventDefault()} className='p-2' >
