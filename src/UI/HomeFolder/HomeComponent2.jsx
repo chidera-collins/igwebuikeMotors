@@ -62,8 +62,8 @@ function HomeComponent2() {
                                 whileInView={{ opacity: 1, x:0  }}
                                 transition={{delay:1, duration:2}}
                                 viewport={{ once: true }} 
-                            className='h-[30%] w-full text-center px-4 py-2  '>
-                                <div  className='flex h-[150px] bg-[#393E46] flex-col justify-center items-center rounded-sm'>
+                                className='h-[30%] w-full text-center px-4 py-2  '>
+                                <div  className='flex h-[150px] bg-[#393E46] flex-col justify-center items-center rounded-md'>
                                     <h1 className='text-[1.2rem] font-medium text-[white]'>{count}+</h1>
                                     <p className='text-[white] text-[1.2rem] font-medium capitalize'>cars sold already</p>
                                 </div>
@@ -77,16 +77,15 @@ function HomeComponent2() {
                       initial={{ opacity: 0, y:10 }}
                       whileInView={{ opacity: 1, y:0 }}
                     transition={{delay:0.5, duration:2}}
-                    viewport={{ once: true }}
-                      
+                    viewport={{ once: true }}             
                       className='h-[inherit] w-[100%] lg:w-[60%]'>
-                            <h2 className='mt-[60px] text-[1rem]  md:text-[1.4rem] text-text'>About Us</h2>
+                            <h2 className='mt-[60px] text-[36px] font-bold md:text-[36px] text-text'>About Us</h2>
 
-                            <h1 className='mt-[50px] text:-[1.2rem] md:text-[1.4rem] lg:text-[2rem]'> Driven by Excellence: Your Trusted Partner for Premium <span className='text-text underline'> Vehicles</span> </h1>
+                            <h1 className='mt-[10px] text:-[34px] leading-8 font-[450] md:text-[1.4rem] lg:text-[22px]'> Driven by Excellence: Your Trusted Partner for Premium <span className='text-text underline'> Vehicles</span> </h1>
 
-                            <p className='mt-[40px] leading-5 md:text-[1.4rem]'>Welcome to Autovault where innovation drives every journey. Discover a range of designed to elevate your driving experience.</p>
+                            <p className='mt-[20px] leading-7 text-[12px] md:text-[16px] font-[200] text-[#ffffffb1]'>Welcome to Autovault where innovation drives every journey. Discover a range of designed to elevate your driving experience.</p>
                             <Link to='/about'>
-                              <div className="relative h-[40px] w-[110px] mt-4 overflow-hidden bg-text rounded group">
+                              <div className="relative h-[40px] w-[110px] mt-7 overflow-hidden bg-text rounded group">
                                 <div className="absolute inset-0 z-30 flex items-center gap-1 justify-center pointer-events-none">
                                   <span className="text-white font-semibold text-[1rem]">  Learn More</span>
                                 </div>

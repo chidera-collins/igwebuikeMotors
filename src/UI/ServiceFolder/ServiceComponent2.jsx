@@ -19,12 +19,12 @@ function ServiceComponent2() {
             <div className='grid grid-cols-1 p-3'>
                 <div className='flex flex-col justify-end'>
                  <h3 className='text-text'>Car Dealer Service</h3>
-                 <h1 className='text-white lg:text-[2rem] text-[1.4rem] font-semibold'>Igwebuike <span className='text-text underline'>Service</span> Center</h1>
+                 <h1 className='text-white lg:text-[2rem] text-[28px] font-[600]'>Igwebuike <span className='text-text underline'>Service</span> Center</h1>
                 </div>
                 
-                <div className='leading-8 flex flex-col justify-center text-start'> 
-                     <p>
-                     At Igwebuike motors ltd, we make car buying simple and hassle-free. Browse a wide selection of new and used vehicles from trusted dealers and private sellers. Compare prices, check detailed specifications, and connect with sellers—all in one place. Whether you're looking for a budget-friendly ride or a luxury car, we’ve got you covered. Start your journey today and drive away with confidence!
+                <div className='leading-7 flex flex-col justify-center text-start'> 
+                     <p className='text-textColor font-[400] text-[14px]'>
+                     At Igwebuike motors ltd, we make car buying simple and hassle-free. Browse a wide selection of new and used vehicles from trusted dealers and private sellers. Compare prices, check detailed specifications, and connect with sellers all in one place. Whether you're looking for a budget-friendly ride or a luxury car, we’ve got you covered. Start your journey today and drive away with confidence!
 
                     </p>
 

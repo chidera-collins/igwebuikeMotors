@@ -72,11 +72,11 @@ function AboutComponent2() {
                            </div>
                            <div className='min-h-[300px] lg:w-[54%] w-full bg-[] flex-col leading-7 px-2'>
                              <div className='h-[inherit] w-[100%] lg:w-[70%]'>
-                                   <h2 className='mt-[60px] text-[1rem]  md:text-[1.4rem] text-text'>About Us</h2>
+                                   <h2 className='mt-[60px] font-[500]  text-[24px] text-text'>About Us</h2>
        
-                                   <h1 className='mt-[50px] text:-[1.2rem] md:text-[1.4rem] lg:text-[2rem]'> Driven by Excellence: Your Trusted Partner for Premium <span className='text-text underline'> Vehicles</span> </h1>
+                                   <h1 className='mt-[20px] text:-[1.2rem] font-[500] md:text-[20px] lg:text-[20px]'> Driven by Excellence: Your Trusted Partner for Premium <span className='text-text underline'> Vehicles</span> </h1>
        
-                                   <p className='mt-[40px] leading-5 md:text-[1.4rem]'>Welcome to igwebuike where innovation drives every journey. Discover a range of designed to elevate your driving experience.</p>
+                                   <p className='mt-[5px] leading-7 text-textColor text-[12px] md:text-[16px] font-[400]'>Welcome to igwebuike where innovation drives every journey. Discover a range of designed to elevate your driving experience.</p>
        
                                   
                              </div>

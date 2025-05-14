@@ -49,13 +49,13 @@ function HomeComponent5() {
             {
                 products.map((product)=>(
                     <SwiperSlide key={product.id}>
-                        <div className='min-h-[100px] w-[full] bg-[#222831] mb-4 flex cursor-pointer rounded-[10%]'>
+                        <div className='min-h-[100px] w-[full] bg-[#222831] mb-4 flex cursor-pointer border-1 border-textColor'>
                             <div className='h-[100px] bg-[] w-[40%] text-[1.8rem] flex justify-center items-center font-bold text-text'>
                                 {product.icon}
                             </div>
                             <div className=' flex justify-center items-center flex-col'>
-                                <h4 className='capitalize md:text-[1.4rem] text-[white] hover:text-text font-medium'>{product.name}</h4>
-                                <h3 className='md:text-[1.4rem] text-[grey] font-medium'>{product.availableCars}+ {product.make}</h3>
+                                <h4 className='capitalize text-[18px] text-[white] hover:text-text font-[500]'>{product.name}</h4>
+                                <h3 className='text-[18px] text-textColor font-[400]'>{product.availableCars}+ {product.make}</h3>
                             </div>
 
 

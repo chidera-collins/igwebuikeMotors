@@ -43,7 +43,7 @@ function HomeComponent6() {
             // console.log(filteredData)
             setFilteredCars(filteredData)
                 }catch(err){
-                    console.log(err)
+                    console.error(err)
         }
                 
     };
@@ -121,7 +121,7 @@ function HomeComponent6() {
                     exit={{ opacity: 0, y: -20 }} // Exit with fade-out and slight upward movement
                     transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth animation
                     className='min-h-[200px] bg-[#808080a3] grid grid-cols-1 rounded-[4%] p-6'>
-                        <div className=' w-full bg-  relative'>
+                        <div className=' w-full bg-  relative object-cover'>
 
                             <img src={cars.photo} alt={cars.name} height='100%' width='100%' />
                             {/* for pics  */}

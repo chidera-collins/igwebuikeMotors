@@ -22,7 +22,7 @@ function ServiceComponent3() {
                  <img src={icon13} alt="icon.svg13" />
             <div>
             <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>24/7 Support</h1>
-      <p className='leading-5'>
+      <p className='leading-7 font-[400] text-[14px]'>
         Our dedicated team is available around the clock to assist you with any questions or concerns during your car-buying journey.
       </p>
     </div>
@@ -31,7 +31,7 @@ function ServiceComponent3() {
   <div className='leading-10'>
     <img src={icon14} alt="icon.svg14" />
     <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>Competitive Pricing</h1>
-    <p className='leading-5'>
+    <p className='leading-7 font-[400] text-[14px]'>
       Get the best deals on a wide range of vehicles, with transparent pricing and no hidden fees.
     </p>
   </div>
@@ -39,15 +39,15 @@ function ServiceComponent3() {
   <div className='leading-10'>
     <img src={icon15} alt="icon.svg15" />
     <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>Eco-Friendly Service</h1>
-    <p className='leading-5'>
+    <p className='leading-7 font-[400] text-[14px]'>
       We promote sustainable practices by offering eco-conscious vehicles and green service options.
     </p>
   </div>
 
   <div className='leading-10'>
     <img src={icon16} alt="icon.svg16" />
-    <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>Cleaning Technology</h1>
-    <p className='leading-5'>
+    <h1 className='text-[#808080a3] font-[500] lg:text-[1.4rem] text-[1.2rem]'>Cleaning Technology</h1>
+    <p className='leading-7 font-[400] text-[14px]'>
       Our vehicles are maintained with advanced cleaning technology for a fresh and safe experience.
     </p>
   </div>

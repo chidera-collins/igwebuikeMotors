@@ -73,7 +73,7 @@ function AboutComponent3() {
                         {testimonial.map((value,id)=>(
                             <SwiperSlide key={id}>
                                 <div className='min-h-[200px] w-full lg:mt-3 bg-[] mb-7 p-3 rounded-[2%] grid grid-cols-1'>
-                                    <h1 className='text-white'>{value.testimony}</h1>
+                                    <h1 className='text-textColor font-[300] text-[14px]'>{value.testimony}</h1>
 
                                     <div className='flex'>
                                            <aside>

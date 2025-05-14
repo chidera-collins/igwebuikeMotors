@@ -73,7 +73,7 @@ function HomeComponent7() {
                 </div>
                 <div>
                     <h1 className='text-white text-[2rem] font-semibold'>{Math.round(countCars)}M</h1>
-                    <p className='text-[#b4b0b0e8] capitalize'>cars for sale</p>
+                    <p className='text-textColor capitalize'>cars for sale</p>
                 </div>
                 
             </div>
@@ -85,7 +85,7 @@ function HomeComponent7() {
                 </div>
                 <div>
                  <h1 className='text-white text-[2rem] font-semibold'>{Math.round(review)}+</h1>
-                 <p className='text-[#808080a3] capitalize'>dealers review</p>
+                 <p className='text-textColor capitalize'>dealers review</p>
 
                 </div>
             </div>
@@ -97,7 +97,7 @@ function HomeComponent7() {
                 </div>
                 <div>
                     <h1 className='text-white text-[2rem] font-semibold'>{Math.round(verifiedUsers)}M</h1>
-                  <p className='text-[#808080a3] capitalize'>verified user</p>
+                  <p className='text-textColor capitalize'>verified user</p>
                 </div>
             </div>
             <div className='flex items-center justify-center gap-3'>
@@ -108,7 +108,7 @@ function HomeComponent7() {
                 </div>
                 <div>
                     <h1 className='text-white text-[2rem] font-semibold'>{Math.round(visitors)}M</h1>
-                    <p className='text-[#808080a3] capitalize'>Visit per day</p>
+                    <p className='text-textColor capitalize'>Visit per day</p>
                 </div>
              
             </div>

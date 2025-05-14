@@ -11,7 +11,7 @@ function ServiceComponent5() {
                 <img src={icon1} alt="" />
                 <div>
                     <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>Issue Identification</h1>
-                    <p className='text-white'>
+                    <p className='text-white font-[400] text-[14px] leading-7'>
                         The mechanic or service advisor talks to the customer to understand the problem noises, performance issues, warning lights
                     </p>
                 </div>
@@ -20,7 +20,7 @@ function ServiceComponent5() {
                 <img src={icon2} alt="" />
                 <div>
                     <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>Quality Control and Testing</h1>
-                    <p className='text-white'>
+                    <p className='text-white font-[400] text-[14px] leading-7'>
                     The mechanic or service advisor talks to the customer to understand the problem noises, performance issues, warning lights
 
                     </p>
@@ -29,8 +29,8 @@ function ServiceComponent5() {
             <div className='grid place-items-center text-center'>
                 <img src={icon3} alt="" />
                 <div>
-                    <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>Customer And Nptification</h1>
-                    <p className='text-white'>
+                    <h1 className='text-[#808080a3] font-semibold lg:text-[1.4rem] text-[1.2rem]'>Customer And Notification</h1>
+                    <p className='text-white font-[400] text-[14px] leading-7'>
                     The mechanic or service advisor talks to the customer to understand the problem noises, performance issues, warning lights
                         
                     </p>
